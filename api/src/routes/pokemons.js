@@ -2,14 +2,25 @@ const { Router } = require("express");
 const getPokemons = require("../controllers/getPokemons");
 const createPokemon = require("../controllers/createPokemon");
 const getPokemonById = require("../controllers/getPokemonById");
+const getPokemonByName = require("../controllers/getPokemonByName");
 const router = Router();
 
 router.get("/pokemons", async (req, res) => {
-  try {
-    const pokemons = await getPokemons();
-    res.send(pokemons);
-  } catch (error) {
-    res.status(400).send(error.message);
+  const { name } = req.query;
+  if (name) {
+    try {
+      const pokemonName = await getPokemonByName(name);
+      res.status(200).send(pokemonName);
+    } catch (error) {
+      res.status(400).send(error.message);
+    }
+  } else {
+    try {
+      const pokemons = await getPokemons();
+      res.status(200).send(pokemons);
+    } catch (error) {
+      res.status(400).send(error.message);
+    }
   }
 });
 
@@ -17,7 +28,7 @@ router.get("/pokemons/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const pokemon = await getPokemonById(id);
-    res.send(pokemon);
+    res.status(200).send(pokemon);
   } catch (error) {
     res.status(400).send({ error: error.message });
   }

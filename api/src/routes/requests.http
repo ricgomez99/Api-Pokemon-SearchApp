@@ -5,7 +5,11 @@ GET {{api}}/pokemons
 
 ###
 
-GET {{api}}/pokemons/bbb3b982-5f38-4d6e-8cd2-620aabf68c4f
+GET {{api}}/pokemons?name=pepino
+
+###
+
+GET {{api}}/pokemons/10
 
 ###
 
@@ -17,12 +21,12 @@ POST {{api}}/pokemons
 Content-Type: application/json
 
 {
-    "name": "pepino",
-    "life": 50,
-    "attack": 90,
-    "defense": 60,
-    "speed": 100,
-    "height": 6,
-    "weight": 70,
-    "types": ["fire", "normal"]
+    "name": "roberto",
+    "life": 40,
+    "attack": 20,
+    "defense": 100,
+    "speed": 50,
+    "height": 5,
+    "weight": 100,
+    "types": ["rock"]
 }
