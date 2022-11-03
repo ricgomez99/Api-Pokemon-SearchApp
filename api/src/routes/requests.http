@@ -5,11 +5,11 @@ GET {{api}}/pokemons
 
 ###
 
-GET {{api}}/pokemons?name=pepino
+GET {{api}}/pokemons?name=pikachu
 
 ###
 
-GET {{api}}/pokemons/10
+GET {{api}}/pokemons/6
 
 ###
 
@@ -21,12 +21,12 @@ POST {{api}}/pokemons
 Content-Type: application/json
 
 {
-    "name": "roberto",
+    "name": "pirulete",
     "life": 40,
     "attack": 20,
     "defense": 100,
     "speed": 50,
     "height": 5,
     "weight": 100,
-    "types": ["rock"]
+    "types": ["normal", "fire"]
 }

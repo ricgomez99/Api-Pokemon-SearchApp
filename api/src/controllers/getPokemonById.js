@@ -19,7 +19,7 @@ const getPokemonById = async (id) => {
       name: pokemonDetail.name,
       life: pokemonDetail.hp,
       attack: pokemonDetail.attack,
-      deffense: pokemonDetail.deffense,
+      defense: pokemonDetail.defense,
       speed: pokemonDetail.speed,
       height: pokemonDetail.height,
       weight: pokemonDetail.weight,

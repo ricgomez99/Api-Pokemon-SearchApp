@@ -1,0 +1,11 @@
+export const GET_POKEMONS = "GET_POKEMONS";
+export const GET_POKEMON_DETAILS = "GET_POKEMON_DETAILS";
+export const GET_TYPES = "GET_TYPES";
+export const ADD_POKEMON = "ADD_POKEMON";
+export const CLEAN_DETAIL = "CLEAN_DETAIL";
+export const ORDER_ASC_DESC = "ORDER_ASC_DESC";
+export const FILTER_BY_TYPES = "FILTER_BY_TYPES";
+export const SET_PAGE_INDEX = "SET_PAGE_INDEX";
+export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
+export const SEARCH_POKEMON = "SEARCH_POKEMON";
+export const GET_POKEMONS_BY_NAME = "GET_POKEMONS_BY_NAME";

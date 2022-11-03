@@ -19,7 +19,7 @@ const getPokemonByName = async (name) => {
       name: pokemonDb.name,
       life: pokemonDb.hp,
       attack: pokemonDb.attack,
-      deffense: pokemonDb.deffense,
+      defense: pokemonDb.defense,
       speed: pokemonDb.speed,
       height: pokemonDb.height,
       weight: pokemonDb.weight,

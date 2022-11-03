@@ -32,7 +32,7 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
         defaultValue: 30,
       },
-      deffense: {
+      defense: {
         type: DataTypes.INTEGER,
         defaultValue: 30,
       },
