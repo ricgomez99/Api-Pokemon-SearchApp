@@ -1,113 +1,46 @@
-import { React, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getPokemons,
-  orderAscDesc,
-  filterByTypes,
-  getTypes,
-  orderByAttack,
-} from "../../Redux/Actions/actions";
-import { Card } from "../Card/Card";
-import { Pagination } from "../Paginate/Pagination";
-import { Search } from "../Search/Search";
+import { React } from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 
 export const Home = () => {
-  const dispatch = useDispatch();
-  const pokemons = useSelector((state) => state.pokemons);
-  const types = useSelector((state) => state.types);
-  const currentPage = useSelector((state) => state.pageIndex);
-
-  // console.log(pokemons);
-
-  const [order, setOrder] = useState(true);
-  const [orderAttack, setOrderAttack] = useState(true);
-
-  const postsPerPage = 9;
-
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = pokemons.slice(indexOfFirstPost, indexOfLastPost);
-
-  useEffect(() => {
-    dispatch(getPokemons());
-    dispatch(getTypes());
-  }, [dispatch]);
-
-  const handleFilterTypes = (e) => {
-    const { value } = e.target;
-    dispatch(filterByTypes(value));
-  };
-
-  const handleSortOrder = (e) => {
-    setOrder(!order);
-    dispatch(orderAscDesc(order));
-  };
-
-  const handleSortAttack = (e) => {
-    setOrderAttack(!orderAttack);
-    dispatch(orderByAttack(orderAttack));
-  };
-
+  const date = new Date().getFullYear;
   return (
-    <div>
-      <div className="search_bar">
-        <Search />
-      </div>
-      <div className="filters">
-        <button className="filter_alpha" onClick={(e) => handleSortOrder(e)}>
-          {order ? (
-            <i className="fa-solid fa-arrow-up-a-z"></i>
-          ) : (
-            <i className="fa-solid fa-arrow-down-z-a"></i>
-          )}
-        </button>
-        <div className="filter_order" onClick={(e) => handleSortAttack(e)}>
-          {orderAttack ? (
-            <i className="fa-solid fa-sort-up"></i>
-          ) : (
-            <i className="fa-solid fa-sort-down"></i>
-          )}
+    <div className="main_content">
+      <div className="main_description">
+        <h1 className="sub_title">Pokemon Search App</h1>
+        <p className="intro">
+          Search among the most famous pokemons, find their features, compare
+          their <span className="marked">power</span> and create your own
+          pokemon. Choose between an <span className="marked">attack</span>{" "}
+          level and <span className="marked">4</span> additional features, and
+          get the best pokemon in Pallet <span className="marked">Town</span>!
+        </p>
+        <div className="main_link">
+          <Link to="/main">
+            <button className="main_btn">
+              Get Started
+              <div className="icon">
+                <svg
+                  height="24"
+                  width="24"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </div>
+            </button>
+          </Link>
         </div>
-
-        <div>
-          <select
-            className="select_types"
-            onChange={(e) => handleFilterTypes(e)}
-          >
-            <option className="option_types" value="All">
-              All Types
-            </option>
-            {types?.map((type) => (
-              <option key={type.id} value={type.name}>
-                {type.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-      <div className="wrapper">
-        {currentPosts ? (
-          currentPosts.map((pokemon) => (
-            <Card
-              key={pokemon.id}
-              name={pokemon.name}
-              image={pokemon.img}
-              id={pokemon.id}
-              attack={pokemon.attack}
-              types={pokemon.types}
-            />
-          ))
-        ) : (
-          <p>Loading</p>
-        )}
-      </div>
-      <div>
-        {pokemons.length ? (
-          <Pagination quantity={pokemons.length} />
-        ) : (
-          <h1>Please Wait...</h1>
-        )}
+        <img
+          src="images/landing-image1.png"
+          alt="ash-picture"
+          className="main_picture"
+        />
       </div>
     </div>
   );

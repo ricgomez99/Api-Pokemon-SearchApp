@@ -10,16 +10,18 @@ export const NavBar = () => {
 
   return (
     <div className="Navbar">
-      <span className="logo">TRAVELRY</span>
+      <span className="logo">
+        <img src="images/mega-ball.png" alt="logo" />
+      </span>
       <div className={`items ${isOpen && "open"}`}>
         <Link to="/" className="link">
           HOME
         </Link>
-        <Link to="/about" className="link">
-          ABOUT
+        <Link to="/main" className="link">
+          POKEMONS
         </Link>
         <Link to="/contact" className="link">
-          CONTACT
+          ABOUT
         </Link>
       </div>
       <div className={`toggle ${isOpen && "open"}`} onClick={handleClick}>

@@ -9,6 +9,10 @@
   overflow: hidden;
 }
 
+.search:hover {
+  transform: scale(1.07);
+}
+
 .search.active {
   width: 360px;
 }

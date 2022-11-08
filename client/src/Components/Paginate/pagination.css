@@ -10,10 +10,15 @@
   height: 34px;
   padding: 0;
   border: 0;
-  border-radius: 3px;
-  background: #eeeeee;
+  border-radius: 10px;
+  background: #ffffff;
   color: #b980f0;
   cursor: pointer;
+  box-shadow: 0 2px 10px #dddddd;
+}
+
+.pagination > button:hover {
+  transform: scale(1.05);
 }
 
 .pagination > button.active {

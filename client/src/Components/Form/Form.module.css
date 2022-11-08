@@ -1,0 +1,120 @@
+.formContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 71%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 20px #cdd0cb;
+  padding-top: 30px;
+  margin-top: 40px;
+}
+
+.formContainer .form {
+  padding: 28px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.formContainer .txtField {
+  position: relative;
+  border-bottom: 2px solid #b980f0;
+  margin: 15px 0;
+}
+
+.txtField input {
+  width: 100%;
+  padding: 0 5px;
+  height: 16px;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.txtField select {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 1rem;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.formButton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 65px;
+}
+
+.formButton button {
+  width: 87%;
+  padding: 15px 0;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 2px solid #b980f0;
+  color: #b980f0;
+  font-weight: bold;
+  font-size: 1rem;
+  background: transparent;
+  letter-spacing: 1px;
+}
+
+.formButton button:hover {
+  background: #b980f0;
+  color: #fff;
+}
+
+.message {
+  padding: 2px 5px;
+  position: relative;
+  display: flex;
+}
+
+.message p {
+  color: #ff9494;
+  font-size: 0.7rem;
+}
+
+.selectedTypes {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  background: transparent;
+  margin: 10px 0;
+}
+.selectedTypes .typeBtn {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 2px solid #354259;
+  color: #354259;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+}
+
+.selectedTypes .typeBtn:hover {
+  background: #354259;
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .formContainer {
+    width: 85%;
+    height: 85%;
+    /* padding: 20px 0; */
+  }
+  .message {
+    padding: 3px 5px;
+  }
+  .formContainer .txtField {
+    margin: 0;
+  }
+}

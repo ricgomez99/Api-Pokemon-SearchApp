@@ -9,8 +9,15 @@
 .Navbar > .logo {
   font-weight: 700;
   font-size: 21px;
-  margin: 52px;
+  margin: 35px;
   color: #181818;
+}
+
+.Navbar > .logo img {
+  width: 35px;
+  height: 35px;
+  padding: 0 5px;
+  transform: translateY(6px);
 }
 
 .Navbar > .items > .link {
@@ -51,14 +58,15 @@
     position: absolute;
     top: 60px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background: #ffffff;
     left: 0;
     width: 100%;
-    height: 20%;
+    height: 8%;
     padding-left: 50px;
     transform: translateX(-100%);
     transition: all 0.45s;
+    padding-top: 20px;
   }
 
   .Navbar > .items.open {

@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPokemon, getTypes } from "../../Redux/Actions/actions";
+import styles from "./Form.module.css";
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -95,7 +96,7 @@ export const Form = () => {
 
   const handleSelect = (e) => {
     setInput((state) => {
-      console.log(state);
+      // console.log(state);
       if (e.target.name === "types") {
         return {
           ...state,
@@ -147,99 +148,123 @@ export const Form = () => {
 
   return (
     <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <div>
-          <input
-            name="name"
-            type="text"
-            value={input.name}
-            placeholder="name"
-            onChange={(e) => handleChange(e)}
-          />
-          <div>{error.name && <p>{error.name}</p>}</div>
+      <div className={styles.formContainer}>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <div className={styles.form}>
+            <div className={styles.txtField}>
+              <input
+                name="name"
+                type="text"
+                value={input.name}
+                placeholder="Name"
+                onChange={(e) => handleChange(e)}
+              />
+              <div className={styles.message}>
+                {error.name && <p>{error.name}</p>}
+              </div>
+            </div>
+            <div className={styles.txtField}>
+              <input
+                name="life"
+                type="number"
+                value={input.life}
+                placeholder="Life"
+                onChange={(e) => handleChange(e)}
+              />
+              <div className={styles.message}>
+                {error.life && <p>{error.life}</p>}
+              </div>
+            </div>
+            <div className={styles.txtField}>
+              <input
+                name="attack"
+                type="number"
+                value={input.attack}
+                placeholder="Attack"
+                onChange={(e) => handleChange(e)}
+              />
+              <div className={styles.message}>
+                {error.attack && <p>{error.attack}</p>}
+              </div>
+            </div>
+            <div className={styles.txtField}>
+              <input
+                name="defense"
+                type="number"
+                value={input.defense}
+                placeholder="Defense"
+                onChange={(e) => handleChange(e)}
+              />
+              <div className={styles.message}>
+                {error.defense && <p>{error.defense}</p>}
+              </div>
+            </div>
+            <div className={styles.txtField}>
+              <input
+                name="speed"
+                type="number"
+                value={input.speed}
+                placeholder="Speed"
+                onChange={(e) => handleChange(e)}
+              />
+              <div className={styles.message}>
+                {error.speed && <p>{error.speed}</p>}
+              </div>
+            </div>
+            <div className={styles.txtField}>
+              <input
+                name="height"
+                type="number"
+                value={input.height}
+                placeholder="Height"
+                onChange={(e) => handleChange(e)}
+              />
+              <div className={styles.message}>
+                {error.height && <p>{error.height}</p>}
+              </div>
+            </div>
+            <div className={styles.txtField}>
+              <input
+                name="weight"
+                type="number"
+                value={input.weight}
+                placeholder="Weight"
+                onChange={(e) => handleChange(e)}
+              />
+              <div className={styles.message}>
+                {error.weight && <p>{error.weight}</p>}
+              </div>
+            </div>
+            <div className={styles.txtField}>
+              <select name="types" id="types" onChange={(e) => handleSelect(e)}>
+                <option>types</option>
+                {types.length &&
+                  types.map((type) => (
+                    <option key={type.id} value={type.name}>
+                      {type.name}
+                    </option>
+                  ))}
+              </select>
+            </div>
+          </div>
+
+          <div className={styles.formButton}>
+            <button type="submit">CREATE</button>
+          </div>
+        </form>
+        <div className={styles.selectedTypes}>
+          {input.types
+            ? input.types.map((i, index) => (
+                <button
+                  className={styles.typeBtn}
+                  key={index}
+                  onClick={() => handleDelete(i)}
+                >
+                  {i} <span className={styles.deleteBtn}></span>
+                </button>
+              ))
+            : alert("Type already selected")}
         </div>
-        <div>
-          <input
-            name="life"
-            type="number"
-            value={input.life}
-            placeholder="life"
-            onChange={(e) => handleChange(e)}
-          />
-          <div>{error.life && <p>{error.life}</p>}</div>
-        </div>
-        <div>
-          <input
-            name="attack"
-            type="number"
-            value={input.attack}
-            placeholder="attack"
-            onChange={(e) => handleChange(e)}
-          />
-          <div>{error.attack && <p>{error.attack}</p>}</div>
-        </div>
-        <div>
-          <input
-            name="defense"
-            type="number"
-            value={input.defense}
-            placeholder="defense"
-            onChange={(e) => handleChange(e)}
-          />
-          <div>{error.defense && <p>{error.defense}</p>}</div>
-        </div>
-        <div>
-          <input
-            name="speed"
-            type="number"
-            value={input.speed}
-            placeholder="speed"
-            onChange={(e) => handleChange(e)}
-          />
-          <div>{error.speed && <p>{error.speed}</p>}</div>
-        </div>
-        <div>
-          <input
-            name="height"
-            type="number"
-            value={input.height}
-            placeholder="height"
-            onChange={(e) => handleChange(e)}
-          />
-          <div>{error.height && <p>{error.height}</p>}</div>
-        </div>
-        <div>
-          <input
-            name="weight"
-            type="number"
-            value={input.weight}
-            placeholder="weight"
-            onChange={(e) => handleChange(e)}
-          />
-          <div>{error.weight && <p>{error.weight}</p>}</div>
-        </div>
-        <div>
-          <select name="types" id="types" onChange={(e) => handleSelect(e)}>
-            <option></option>
-            {types.length &&
-              types.map((type) => (
-                <option key={type.id} value={type.name}>
-                  {type.name}
-                </option>
-              ))}
-          </select>
-          <div>{error.types && <p>{error.types}</p>}</div>
-        </div>
-        <button type="submit">ADD</button>
-      </form>
-      <div>
-        {input.types
-          ? input.types.map((i, index) => (
-              <button key={index} onClick={() => handleDelete(i)}>
-                {i} <span></span>
-              </button>
-            ))
-          : alert("Type already selected")}
       </div>
     </div>
   );

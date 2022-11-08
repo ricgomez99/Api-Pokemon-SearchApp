@@ -19,23 +19,6 @@ export const Pagination = (props) => {
       newPages.push(i);
     }
     setPages(newPages);
-    //   start = 0,
-    //   end = pagesToDisplay;
-
-    // if (pageIndex > (pagesToDisplay - 1) / 2) {
-    //   start = pageIndex - (pagesToDisplay - 1) / 2;
-    //   end = start + pagesToDisplay;
-    // }
-
-    // if (pageIndex > pageCount - (pagesToDisplay + 1) / 2) {
-    //   start = pageCount - pagesToDisplay;
-    //   end = pageCount;
-    // }
-
-    // for (let i = start; i < end; i++) {
-    //   newPages.push(i);
-    // }
-    // setPages(newPages);
   };
   useEffect(() => {
     buildPagination(0);
