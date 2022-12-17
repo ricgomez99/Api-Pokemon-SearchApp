@@ -96,12 +96,15 @@ export const Form = () => {
 
   const handleSelect = (e) => {
     setInput((state) => {
-      // console.log(state);
       if (e.target.name === "types") {
-        return {
-          ...state,
-          types: [...state.types, e.target.value],
-        };
+        if (!state.types.includes(e.target.value) && state.types.length < 2) {
+          return {
+            ...state,
+            types: [...state.types, e.target.value],
+          };
+        } else {
+          return { ...state };
+        }
       } else {
         return {
           ...state,
@@ -151,105 +154,112 @@ export const Form = () => {
       <div className={styles.formContainer}>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className={styles.form}>
-            <div className={styles.txtField}>
-              <input
-                name="name"
-                type="text"
-                value={input.name}
-                placeholder="Name"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className={styles.message}>
-                {error.name && <p>{error.name}</p>}
+            <div className={styles.txtInput}>
+              <div className={styles.txtField}>
+                <input
+                  name="name"
+                  type="text"
+                  value={input.name}
+                  placeholder="Name"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className={styles.message}>
+                  {error.name && <p>{error.name}</p>}
+                </div>
+              </div>
+              <div className={styles.txtField}>
+                <input
+                  name="life"
+                  type="number"
+                  value={input.life}
+                  placeholder="Life"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className={styles.message}>
+                  {error.life && <p>{error.life}</p>}
+                </div>
+              </div>
+              <div className={styles.txtField}>
+                <input
+                  name="attack"
+                  type="number"
+                  value={input.attack}
+                  placeholder="Attack"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className={styles.message}>
+                  {error.attack && <p>{error.attack}</p>}
+                </div>
+              </div>
+              <div className={styles.txtField}>
+                <input
+                  name="defense"
+                  type="number"
+                  value={input.defense}
+                  placeholder="Defense"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className={styles.message}>
+                  {error.defense && <p>{error.defense}</p>}
+                </div>
+              </div>
+              <div className={styles.txtField}>
+                <input
+                  name="speed"
+                  type="number"
+                  value={input.speed}
+                  placeholder="Speed"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className={styles.message}>
+                  {error.speed && <p>{error.speed}</p>}
+                </div>
+              </div>
+              <div className={styles.txtField}>
+                <input
+                  name="height"
+                  type="number"
+                  value={input.height}
+                  placeholder="Height"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className={styles.message}>
+                  {error.height && <p>{error.height}</p>}
+                </div>
+              </div>
+              <div className={styles.txtField}>
+                <input
+                  name="weight"
+                  type="number"
+                  value={input.weight}
+                  placeholder="Weight"
+                  onChange={(e) => handleChange(e)}
+                />
+                <div className={styles.message}>
+                  {error.weight && <p>{error.weight}</p>}
+                </div>
+              </div>
+              <div className={styles.txtField}>
+                <select
+                  name="types"
+                  id="types"
+                  onChange={(e) => handleSelect(e)}
+                >
+                  <option>types</option>
+                  {types.length &&
+                    types.map((type) => (
+                      <option key={type.id} value={type.name}>
+                        {type.name}
+                      </option>
+                    ))}
+                </select>
               </div>
             </div>
-            <div className={styles.txtField}>
-              <input
-                name="life"
-                type="number"
-                value={input.life}
-                placeholder="Life"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className={styles.message}>
-                {error.life && <p>{error.life}</p>}
-              </div>
+            <div className={styles.formButton}>
+              <button type="submit" enabled className={styles.createBtn}>
+                CREATE
+              </button>
             </div>
-            <div className={styles.txtField}>
-              <input
-                name="attack"
-                type="number"
-                value={input.attack}
-                placeholder="Attack"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className={styles.message}>
-                {error.attack && <p>{error.attack}</p>}
-              </div>
-            </div>
-            <div className={styles.txtField}>
-              <input
-                name="defense"
-                type="number"
-                value={input.defense}
-                placeholder="Defense"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className={styles.message}>
-                {error.defense && <p>{error.defense}</p>}
-              </div>
-            </div>
-            <div className={styles.txtField}>
-              <input
-                name="speed"
-                type="number"
-                value={input.speed}
-                placeholder="Speed"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className={styles.message}>
-                {error.speed && <p>{error.speed}</p>}
-              </div>
-            </div>
-            <div className={styles.txtField}>
-              <input
-                name="height"
-                type="number"
-                value={input.height}
-                placeholder="Height"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className={styles.message}>
-                {error.height && <p>{error.height}</p>}
-              </div>
-            </div>
-            <div className={styles.txtField}>
-              <input
-                name="weight"
-                type="number"
-                value={input.weight}
-                placeholder="Weight"
-                onChange={(e) => handleChange(e)}
-              />
-              <div className={styles.message}>
-                {error.weight && <p>{error.weight}</p>}
-              </div>
-            </div>
-            <div className={styles.txtField}>
-              <select name="types" id="types" onChange={(e) => handleSelect(e)}>
-                <option>types</option>
-                {types.length &&
-                  types.map((type) => (
-                    <option key={type.id} value={type.name}>
-                      {type.name}
-                    </option>
-                  ))}
-              </select>
-            </div>
-          </div>
-
-          <div className={styles.formButton}>
-            <button type="submit">CREATE</button>
           </div>
         </form>
         <div className={styles.selectedTypes}>

@@ -10,6 +10,7 @@ import {
   ORDER_BY_ATTACK,
   SEARCH_POKEMON,
   GET_POKEMONS_BY_NAME,
+  FILTER_IN_DATABASE,
 } from "../Action-types/actionTypes";
 
 const initialState = {
@@ -85,6 +86,23 @@ export default function rootReducer(state = initialState, action) {
       return {
         ...state,
         pokemons: filtered,
+      };
+
+    case FILTER_IN_DATABASE:
+      let result;
+      if (action.payload === "All") {
+        result = state.allPokemons;
+      }
+      if (action.payload === "pokemonDB") {
+        result = state.allPokemons.filter((e) => e.id.length > 2);
+      }
+      if (action.payload === "pokemonAPI") {
+        result = state.allPokemons.filter((e) => e.id.length <= 2);
+      }
+
+      return {
+        ...state,
+        pokemons: result,
       };
 
     case ORDER_ASC_DESC:

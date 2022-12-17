@@ -10,6 +10,7 @@ import {
   ORDER_BY_ATTACK,
   SEARCH_POKEMON,
   GET_POKEMONS_BY_NAME,
+  FILTER_IN_DATABASE,
 } from "../Action-types/actionTypes";
 
 export const getPokemons = (dispatch) => {
@@ -99,6 +100,13 @@ export const orderAscDesc = (payload) => {
 export const filterByTypes = (payload) => {
   return {
     type: FILTER_BY_TYPES,
+    payload,
+  };
+};
+
+export const filterInDatabase = (payload) => {
+  return {
+    type: FILTER_IN_DATABASE,
     payload,
   };
 };
