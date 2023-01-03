@@ -17,7 +17,7 @@ export const getPokemons = (dispatch) => {
   return function (dispatch) {
     try {
       axios
-        .get("http://localhost:3001/pokemons")
+        .get("/pokemons")
         .then((response) => response.data)
         .then((data) => dispatch({ type: GET_POKEMONS, payload: data }));
     } catch (error) {
@@ -30,7 +30,7 @@ export const getPokemonDetails = (id) => {
   return function (dispatch) {
     try {
       axios
-        .get(`http://localhost:3001/pokemons/${id}`)
+        .get(`/pokemons/${id}`)
         .then((response) => response.data)
         .then((data) => dispatch({ type: GET_POKEMON_DETAILS, payload: data }));
     } catch (error) {
@@ -43,7 +43,7 @@ export const getTypes = (dispatch) => {
   return function (dispatch) {
     try {
       axios
-        .get("http://localhost:3001/types")
+        .get("/types")
         .then((response) => response.data)
         .then((data) => dispatch({ type: GET_TYPES, payload: data }));
     } catch (error) {
@@ -62,7 +62,7 @@ export const getPokemonsByName = (name) => {
 export const addPokemon = (payload) => {
   return function (dispatch) {
     try {
-      axios.post("http://localhost:3001/pokemons", payload);
+      axios.post("/pokemons", payload);
     } catch (error) {
       console.log(error.message);
     }
@@ -73,11 +73,7 @@ export const searchPokemon = (name) => {
   return function (dispatch) {
     try {
       axios
-        .get(
-          "http://localhost:3001/pokemons?name=" +
-            name.charAt(0).toUpperCase() +
-            name.slice(1)
-        )
+        .get("/pokemons?name=" + name.charAt(0).toUpperCase() + name.slice(1))
         .then((response) => response.data)
         .then((data) => dispatch({ type: SEARCH_POKEMON, payload: data }));
     } catch (error) {

@@ -22,6 +22,7 @@ export const Pagination = (props) => {
   };
   useEffect(() => {
     buildPagination(0);
+    // eslint-disable-next-line
   }, [pokemons]);
 
   useEffect(() => {

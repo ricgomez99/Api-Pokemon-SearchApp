@@ -6,7 +6,6 @@ import {
   filterByTypes,
   getTypes,
   orderByAttack,
-  filterInDatabase,
 } from "../../Redux/Actions/actions";
 import { Card } from "../Card/Card";
 import { Pagination } from "../Paginate/Pagination";
@@ -94,10 +93,6 @@ export const Main = () => {
               </option>
             ))}
           </select>
-          {/* <select>
-            <option value="All">All</option>
-            <option value="pokemon"></option>
-          </select> */}
         </div>
       </div>
       <div className="wrapper">

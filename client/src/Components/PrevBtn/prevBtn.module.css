@@ -1,0 +1,20 @@
+.prevBtn {
+  padding: 8px 13px;
+  border-radius: 10px;
+  border: none;
+  background: #b980f0;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.prevBtn:hover {
+  background: #c69aef;
+}
+
+.prevIcon {
+  padding-right: 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}

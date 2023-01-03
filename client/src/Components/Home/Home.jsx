@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 export const Home = () => {
-  const date = new Date().getFullYear;
   return (
     <div className="main_content">
       <div className="main_description">
@@ -38,7 +37,7 @@ export const Home = () => {
         </div>
         <img
           src="images/landing-image1.png"
-          alt="ash-picture"
+          alt="ash"
           className="main_picture"
         />
       </div>

@@ -2,10 +2,13 @@ import { React, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addPokemon, getTypes } from "../../Redux/Actions/actions";
 import styles from "./Form.module.css";
+import { PrevBtn } from "./../PrevBtn/PrevBtn";
+import { useHistory } from "react-router-dom";
 
 export const Form = () => {
   const dispatch = useDispatch();
   const types = useSelector((state) => state.types);
+  const history = useHistory();
 
   const [error, setError] = useState({});
   const [input, setInput] = useState({
@@ -149,8 +152,15 @@ export const Form = () => {
     });
   };
 
+  const handleHistory = () => {
+    history.push("/main");
+  };
+
   return (
     <div>
+      <div className={styles.return}>
+        <PrevBtn onClick={handleHistory} />
+      </div>
       <div className={styles.formContainer}>
         <form onSubmit={(e) => handleSubmit(e)}>
           <div className={styles.form}>
@@ -256,7 +266,7 @@ export const Form = () => {
               </div>
             </div>
             <div className={styles.formButton}>
-              <button type="submit" enabled className={styles.createBtn}>
+              <button type="submit" className={styles.createBtn}>
                 CREATE
               </button>
             </div>
